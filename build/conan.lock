@@ -1,0 +1,93 @@
+{
+ "profile": "[settings]\narch=x86_64\narch_build=x86_64\nbuild_type=Release\ncompiler=gcc\ncompiler.libcxx=libstdc++11\ncompiler.version=7\nos=Linux\nos_build=Linux\n[options]\n[build_requires]\n[env]\n", 
+ "graph_lock": {
+  "nodes": {
+   "92a127cd-61ff-11ea-891e-f85971926b25": {
+    "pref": "libpng/1.6.34@bincrafters/stable#0:b781af3f476d0aa5070a0a35b544db7a3c193cc8#0", 
+    "requires": {
+     "zlib/1.2.11@conan/stable#0": "92a127c4-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "fPIC=True\nshared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False"
+   }, 
+   "92a127ca-61ff-11ea-891e-f85971926b25": {
+    "pref": "vorbis/1.3.6@bincrafters/stable#0:8d8cebdeda6ff46ba515968aa8b099a24769ca16#0", 
+    "requires": {
+     "ogg/1.3.3@bincrafters/stable#0": "92a127c7-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "fPIC=True\nshared=False\nogg:fPIC=True\nogg:shared=False"
+   }, 
+   "92a127c3-61ff-11ea-891e-f85971926b25": {
+    "pref": "openal/1.19.0@bincrafters/stable#0:812e1deb664b70de9456fc54c225f826fbca36e7#0", 
+    "requires": {
+     "libalsa/1.1.5@conan/stable#0": "92a127c2-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "fPIC=True\nshared=False\nlibalsa:disable_python=True\nlibalsa:fPIC=True\nlibalsa:shared=False"
+   }, 
+   "92a127c5-61ff-11ea-891e-f85971926b25": {
+    "pref": "bzip2/1.0.6@conan/stable#0:b27e2b40bcb70be2e7d6f0e0c6e43e35c530f8d3#0", 
+    "options": "build_executable=True\nfPIC=True\nshared=False"
+   }, 
+   "92a127c7-61ff-11ea-891e-f85971926b25": {
+    "pref": "ogg/1.3.3@bincrafters/stable#0:d50a0d523d98c15bb147b18fa7d203887c38be8b#0", 
+    "options": "fPIC=True\nshared=False"
+   }, 
+   "92a127cb-61ff-11ea-891e-f85971926b25": {
+    "pref": "freetype/2.9.0@bincrafters/stable#0:3cdd93cd46fc07735d1b0d7f2860a82fac7a3053#0", 
+    "requires": {
+     "libpng/1.6.34@bincrafters/stable#0": "92a127cd-61ff-11ea-891e-f85971926b25", 
+     "zlib/1.2.11@conan/stable#0": "92a127c4-61ff-11ea-891e-f85971926b25", 
+     "bzip2/1.0.6@conan/stable#0": "92a127c5-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "fPIC=True\nshared=False\nwith_bzip2=True\nwith_png=True\nwith_zlib=True\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nlibpng:fPIC=True\nlibpng:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False"
+   }, 
+   "92a127c9-61ff-11ea-891e-f85971926b25": {
+    "pref": "stb/20180214@conan/stable#0:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9#0", 
+    "options": ""
+   }, 
+   "92a127c4-61ff-11ea-891e-f85971926b25": {
+    "pref": "zlib/1.2.11@conan/stable#0:d50a0d523d98c15bb147b18fa7d203887c38be8b#0", 
+    "options": "fPIC=True\nminizip=False\nshared=False"
+   }, 
+   "92a127c6-61ff-11ea-891e-f85971926b25": {
+    "pref": "boost/1.69.0@conan/stable#0:63aa18f4c96abf22f1e546119f1f7bbee8e30165#0", 
+    "requires": {
+     "bzip2/1.0.6@conan/stable#0": "92a127c5-61ff-11ea-891e-f85971926b25", 
+     "zlib/1.2.11@conan/stable#0": "92a127c4-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "asio_no_deprecated=False\nbzip2=True\nerror_code_header_only=False\nfPIC=True\nfilesystem_no_deprecated=False\nheader_only=False\nlayout=system\nlzma=False\nmagic_autolink=False\nnamespace=boost\nnamespace_alias=False\npython_executable=None\npython_version=None\nshared=False\nsystem_no_deprecated=False\nwithout_atomic=False\nwithout_chrono=False\nwithout_container=False\nwithout_context=False\nwithout_contract=False\nwithout_coroutine=False\nwithout_date_time=False\nwithout_exception=False\nwithout_fiber=False\nwithout_filesystem=False\nwithout_graph=False\nwithout_graph_parallel=False\nwithout_iostreams=False\nwithout_locale=False\nwithout_log=False\nwithout_math=False\nwithout_mpi=False\nwithout_program_options=False\nwithout_python=True\nwithout_random=False\nwithout_regex=False\nwithout_serialization=False\nwithout_stacktrace=False\nwithout_system=False\nwithout_test=False\nwithout_thread=False\nwithout_timer=False\nwithout_type_erasure=False\nwithout_wave=False\nzlib=True\nzstd=False\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False"
+   }, 
+   "92a127c8-61ff-11ea-891e-f85971926b25": {
+    "pref": "flac/1.3.2@bincrafters/stable#0:ef227c7ca8be49f078e2c7c4a6cebbac879b693a#0", 
+    "requires": {
+     "ogg/1.3.3@bincrafters/stable#0": "92a127c7-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "fPIC=True\nshared=False\nuse_asm=False\nogg:fPIC=True\nogg:shared=False"
+   }, 
+   "92a127cc-61ff-11ea-891e-f85971926b25": {
+    "pref": "sfml/2.5.1@bincrafters/stable#0:8b7784d5fc174258519ade3ba45409d3f6e66c75#a0d4e407df15c567b440d5d4cc97264d", 
+    "requires": {
+     "ogg/1.3.3@bincrafters/stable#0": "92a127c7-61ff-11ea-891e-f85971926b25", 
+     "flac/1.3.2@bincrafters/stable#0": "92a127c8-61ff-11ea-891e-f85971926b25", 
+     "openal/1.19.0@bincrafters/stable#0": "92a127c3-61ff-11ea-891e-f85971926b25", 
+     "stb/20180214@conan/stable#0": "92a127c9-61ff-11ea-891e-f85971926b25", 
+     "vorbis/1.3.6@bincrafters/stable#0": "92a127ca-61ff-11ea-891e-f85971926b25", 
+     "freetype/2.9.0@bincrafters/stable#0": "92a127cb-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "audio=True\nfPIC=True\ngraphics=True\nnetwork=True\nshared=False\nwindow=True\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nflac:fPIC=True\nflac:shared=False\nflac:use_asm=False\nfreetype:fPIC=True\nfreetype:shared=False\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibalsa:disable_python=True\nlibalsa:fPIC=True\nlibalsa:shared=False\nlibpng:fPIC=True\nlibpng:shared=False\nogg:fPIC=True\nogg:shared=False\nopenal:fPIC=True\nopenal:shared=False\nvorbis:fPIC=True\nvorbis:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False"
+   }, 
+   "92a127ce-61ff-11ea-891e-f85971926b25": {
+    "pref": null, 
+    "requires": {
+     "boost/1.69.0@conan/stable#0": "92a127c6-61ff-11ea-891e-f85971926b25", 
+     "sfml/2.5.1@bincrafters/stable#0": "92a127cc-61ff-11ea-891e-f85971926b25"
+    }, 
+    "options": "boost:asio_no_deprecated=False\nboost:bzip2=True\nboost:error_code_header_only=False\nboost:fPIC=True\nboost:filesystem_no_deprecated=False\nboost:header_only=False\nboost:layout=system\nboost:lzma=False\nboost:magic_autolink=False\nboost:namespace=boost\nboost:namespace_alias=False\nboost:python_executable=None\nboost:python_version=None\nboost:shared=False\nboost:system_no_deprecated=False\nboost:without_atomic=False\nboost:without_chrono=False\nboost:without_container=False\nboost:without_context=False\nboost:without_contract=False\nboost:without_coroutine=False\nboost:without_date_time=False\nboost:without_exception=False\nboost:without_fiber=False\nboost:without_filesystem=False\nboost:without_graph=False\nboost:without_graph_parallel=False\nboost:without_iostreams=False\nboost:without_locale=False\nboost:without_log=False\nboost:without_math=False\nboost:without_mpi=False\nboost:without_program_options=False\nboost:without_python=True\nboost:without_random=False\nboost:without_regex=False\nboost:without_serialization=False\nboost:without_stacktrace=False\nboost:without_system=False\nboost:without_test=False\nboost:without_thread=False\nboost:without_timer=False\nboost:without_type_erasure=False\nboost:without_wave=False\nboost:zlib=True\nboost:zstd=False\nbzip2:build_executable=True\nbzip2:fPIC=True\nbzip2:shared=False\nflac:fPIC=True\nflac:shared=False\nflac:use_asm=False\nfreetype:fPIC=True\nfreetype:shared=False\nfreetype:with_bzip2=True\nfreetype:with_png=True\nfreetype:with_zlib=True\nlibalsa:disable_python=True\nlibalsa:fPIC=True\nlibalsa:shared=False\nlibpng:fPIC=True\nlibpng:shared=False\nogg:fPIC=True\nogg:shared=False\nopenal:fPIC=True\nopenal:shared=False\nsfml:audio=True\nsfml:fPIC=True\nsfml:graphics=True\nsfml:network=True\nsfml:shared=False\nsfml:window=True\nvorbis:fPIC=True\nvorbis:shared=False\nzlib:fPIC=True\nzlib:minizip=False\nzlib:shared=False"
+   }, 
+   "92a127c2-61ff-11ea-891e-f85971926b25": {
+    "pref": "libalsa/1.1.5@conan/stable#0:bff9a7d5ab267a535181ec5b36392417340ff035#0", 
+    "options": "disable_python=True\nfPIC=True\nshared=False"
+   }
+  }
+ }, 
+ "version": "0.1"
+}
