@@ -32,8 +32,10 @@ void Client::UpdateNetwork()
             if (status == sf::Socket::Done)
             {
                 int protocol;
-                if (packet >> protocol)
-                    (_protocolManager.*_protocolManager._cfptr.at(static_cast<ProtocolManager::Protocol>(protocol)))(*this, packet);
+                if (packet >> protocol) {
+                    auto fptr = _protocolManager._cfptr.at(static_cast<ProtocolManager::Protocol>(protocol));
+                    (_protocolManager.*fptr)(*this, packet);
+                }
             }
             else
                 std::cout << "read fail" << std::endl;
@@ -54,8 +56,10 @@ void Client::UpdateNetwork()
             if (status == sf::Socket::Done)
             {
                 int protocol;
-                if (packet >> protocol)
-                    (_protocolManager.*_protocolManager._cfptr.at(static_cast<ProtocolManager::Protocol>(protocol)))(*this, packet);
+                if (packet >> protocol) {
+                    auto fptr = _protocolManager._cfptr.at(static_cast<ProtocolManager::Protocol>(protocol));
+                    (_protocolManager.*fptr)(*this, packet);
+                }
             }
             else
                 std::cout << "read fail" << std::endl;
@@ -113,9 +117,9 @@ _protocolManager()
                 p << _event.mouseMove.y;
                 p << client._id;
 
-                if (client._id == 0 && client.udp_socket.send(p, "127.0.0.1", 55002) != sf::Socket::Done)
+                if (client._id == 0 && client.udp_socket.send(p, client.tcp_socket.getRemoteAddress(), 55002) != sf::Socket::Done)
                     std::cout << "Fail send protocol CLIENT_MOUSEMOVE" << std::endl;
-                if (client._id == 1 && client.udp_socket.send(p, "127.0.0.1", 55003) != sf::Socket::Done)
+                if (client._id == 1 && client.udp_socket.send(p, client.tcp_socket.getRemoteAddress(), 55003) != sf::Socket::Done)
                     std::cout << "Fail send protocol CLIENT_MOUSEMOVE" << std::endl;
 
 
@@ -127,9 +131,9 @@ _protocolManager()
                 p2 << _event.mouseButton.x;
                 p2 << _event.mouseButton.y;
                 p2 << client._id;
-                if (client._id == 0 && client.udp_socket.send(p2, "127.0.0.1", 55002) != sf::Socket::Done)
+                if (client._id == 0 && client.udp_socket.send(p2, client.tcp_socket.getRemoteAddress(), 55002) != sf::Socket::Done)
                     std::cout << "Fail send protocol CLIENT_SHOT" << std::endl;
-                if (client._id == 1 && client.udp_socket.send(p2, "127.0.0.1", 55003) != sf::Socket::Done)
+                if (client._id == 1 && client.udp_socket.send(p2, client.tcp_socket.getRemoteAddress(), 55003) != sf::Socket::Done)
                     std::cout << "Fail send protocol CLIENT_SHOT" << std::endl;
 
             }

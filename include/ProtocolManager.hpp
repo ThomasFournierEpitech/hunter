@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <list>
-#include <unordered_map>
+#include <map>
 #include <SFML/Network.hpp>
 
 
@@ -60,8 +60,8 @@ public:
 
 
 
-    std::unordered_map<Protocol, void (ProtocolManager::*)(Server &s, sf::Packet &p)> _sfptr;
-    std::unordered_map<Protocol, void (ProtocolManager::*)(Client &c, sf::Packet &p)> _cfptr;
+    std::map<Protocol, void (ProtocolManager::*)(Server &s, sf::Packet &p)> _sfptr;
+    std::map<Protocol, void (ProtocolManager::*)(Client &c, sf::Packet &p)> _cfptr;
 protected:
 
 };

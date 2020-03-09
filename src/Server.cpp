@@ -159,8 +159,10 @@ void Server::UpdateNetwork()
                     {
 
                         int protocol;
-                        if (packet >> protocol)
-                            (_protocolManager.*_protocolManager._sfptr.at(static_cast<ProtocolManager::Protocol>(protocol)))(*this, packet);
+                        if (packet >> protocol) {
+                            auto fptr = _protocolManager._sfptr.at(static_cast<ProtocolManager::Protocol>(protocol));
+                            (_protocolManager.*fptr)(*this, packet);
+                        }
                     }
 
                 }
@@ -183,7 +185,8 @@ void Server::UpdateNetwork()
 
                         int protocol;
                         if (packet >> protocol) {
-                            (_protocolManager.*_protocolManager._sfptr.at(static_cast<ProtocolManager::Protocol>(protocol)))(*this, packet);
+                            auto fptr = _protocolManager._sfptr[static_cast<ProtocolManager::Protocol>(protocol)];
+                            (_protocolManager.*fptr)(*this, packet);
                         }
 
                     }

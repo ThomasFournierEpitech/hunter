@@ -1,3 +1,0 @@
-/home/fournier5/hunter_network/build/CMakeFiles/rebuild_cache.dir
-/home/fournier5/hunter_network/build/CMakeFiles/hunter_network.dir
-/home/fournier5/hunter_network/build/CMakeFiles/edit_cache.dir
