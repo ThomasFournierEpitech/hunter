@@ -101,7 +101,7 @@ _protocolManager()
 
     _window.create(sf::VideoMode(1080, 720), "LAN HUNTER");
     _window.setFramerateLimit(144);
-    // _window.setMouseCursorVisible(false);
+    _window.setMouseCursorVisible(false);
     _game._clock.restart();
     while (_window.isOpen())
     {
