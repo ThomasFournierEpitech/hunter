@@ -116,7 +116,11 @@ void Game::UpdateClient(sf::RenderWindow &window, int id)
     for (std::vector<sf::Text>::iterator it = v.begin(); it != v.end(); ++it) {
         if (i == 5)
             break;
-        (*it).setPosition(0, i  * (*it).getCharacterSize());
+        sf::FloatRect g = (*it).getGlobalBounds();
+        g.left = 1080 - g.width - 20;
+        g.top = 0 + i  * (*it).getCharacterSize();
+
+        (*it).setPosition(g.left, g.top);
         window.draw(*it);
         i++;
     }
