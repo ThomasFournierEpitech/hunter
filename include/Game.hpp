@@ -22,6 +22,12 @@
 #include "Player.hpp"
 #include "Duck.hpp"
 
+struct scoreGreater
+{
+    bool operator()(sf::Text const &a, sf::Text const &b) const { return std::atoi(std::string(a.getString()).c_str()) > std::atoi(std::string(b.getString()).c_str()); }
+};
+
+
 class Game {
 private:
 public:
@@ -37,6 +43,8 @@ public:
     State _state;
     int _maxPlayer;
 
+    sf::Font _font;
+
     sf::Texture _texBg;
     sf::Texture _texDuck;
     sf::Texture _texCrosshair;
@@ -45,13 +53,14 @@ public:
 
     std::vector<Duck *> _ducks;
 
+    std::vector<sf::Text *> _scores;
 
     std::vector<Player *> _players;
 
     sf::Clock _clock;
     sf::Time _dt;
     void CreateDuck(sf::UdpSocket &s, float x, float y);
-    void UpdateClient(sf::RenderWindow &window);
+    void UpdateClient(sf::RenderWindow &window, int id);
     void UpdateServer(sf::UdpSocket &s);
 
 

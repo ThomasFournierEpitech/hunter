@@ -14,14 +14,14 @@ Server::Server(unsigned short port, int maxPlayer) :
 _game(),
 _protocolManager(),
 _clients(maxPlayer, nullptr)
+
  {
     _listener.listen(port);
     _selector.add(_listener);
     _running = true;
     _maxPlayer = maxPlayer;
+    _game._maxPlayer = maxPlayer;
     _game._clock.restart();
-    std::cout << "maxPlayer: " << maxPlayer << std::endl;
-    std::cout << "clientsSize: " << _clients.size() << std::endl;
     while (_running)
     {
         UpdateNetwork();

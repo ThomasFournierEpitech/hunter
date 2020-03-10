@@ -93,6 +93,7 @@ _protocolManager()
     _selector.add(client.udp_socket);
 
 
+    _game._font.loadFromFile("Assets/arial.ttf");
     _game._texCrosshair.loadFromFile("Assets/crosshair.png");
     _game._texDuck.loadFromFile("Assets/duck.png");
     _game._texBg.loadFromFile("Assets/bg.jpeg");
@@ -139,7 +140,7 @@ _protocolManager()
             }
         }
         UpdateNetwork();
-        _game.UpdateClient(_window);
+        _game.UpdateClient(_window, client._id);
         _game._dt = _game._clock.getElapsedTime();
         _game._clock.restart();
     }

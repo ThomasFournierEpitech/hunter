@@ -30,8 +30,8 @@ public:
     enum Protocol {
         CLIENT_MOUSEMOVE_SEND,
         CLIENT_SHOT_SEND,
-        CLIENT_NEWPLAYER_RECEIVE,
         SERVER_ID_RESPONSE,
+        SERVER_UPDATESCORE_RESPONSE,
         SERVER_NEWPLAYER_SEND,
         SERVER_PLAYERLEFT_SEND,
         SERVER_BIRDSPAWN_SEND,
@@ -48,7 +48,9 @@ public:
     void ClientShotSend(Server &s, sf::Packet &p);
 
 
+
     void ServerIdResponse(Client &c, sf::Packet &p);
+    void ServerUpdateScoreResponse(Client &c, sf::Packet &p);
     void ServerMouseMoveResponse(Client &s, sf::Packet &p);
     void ServerPlayerLeftSend(Client &c, sf::Packet &p);
     void ServerNewPlayerSend(Client &c, sf::Packet &p);

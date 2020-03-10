@@ -1,7 +1,7 @@
 project(myWord_v2)
 cmake_minimum_required(VERSION 2.8.12)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32 -g3 -lsfml-graphics -lsfml-audio -lsfml-system -lsfml‑window" CACHE STRING "c++ flags")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32 -g3 -lsfml-graphics -lsfml-audio -lsfml-network -lsfml-system -lsfml‑window" CACHE STRING "c++ flags")
 set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS} -m32 -g3" CACHE STRING "c flags")
 
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)

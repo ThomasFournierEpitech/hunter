@@ -54,9 +54,9 @@ void Game::UpdateServer(sf::UdpSocket &s)
 
     if (_state == RUN) {
         spawnDuckClock += _dt;
-        while (spawnDuckClock.asSeconds () >= 1) {
+        while (spawnDuckClock.asSeconds () >= 1.f / _maxPlayer) {
             CreateDuck(s, - (std::rand() % 100 + 60), std::rand() % (720 - 45));
-            spawnDuckClock -= sf::seconds(1);
+            spawnDuckClock -= sf::seconds(1.f  / _maxPlayer);
         }
         for (std::vector<Duck *>::iterator it = _ducks.begin(); it != _ducks.end(); ++it) {
             Duck *duck = *it;
@@ -71,6 +71,7 @@ void Game::UpdateServer(sf::UdpSocket &s)
                 s.send(p, sf::IpAddress::Broadcast, 55001);
                 s.send(p, sf::IpAddress::Broadcast, 55000);
                 p.clear();
+
                 delete (duck);
                 it = _ducks.erase(it);
             }
@@ -79,7 +80,7 @@ void Game::UpdateServer(sf::UdpSocket &s)
 
 }
 
-void Game::UpdateClient(sf::RenderWindow &window)
+void Game::UpdateClient(sf::RenderWindow &window, int id)
 {
     if (_state == RUN)
         for (auto &duck : _ducks)
@@ -88,10 +89,36 @@ void Game::UpdateClient(sf::RenderWindow &window)
     window.clear(sf::Color::White);
     window.draw(_spBg);
     for (std::vector<Duck *>::iterator it = _ducks.begin(); it != _ducks.end(); ++it)
-        if (*it)
+        if (*it) {
+            sf::FloatRect g =_players[id]->_crosshair.getGlobalBounds();
+            sf::FloatRect g2 = (*it)->_sp.getGlobalBounds();
+            sf::Vector2f point(g.left + g.width / 2, g.top + g.height / 2);
+            if (g2.contains(point))
+                (*it)->_sp.setColor(sf::Color::Red);
+            else
+                (*it)->_sp.setColor(sf::Color::White);
+
             window.draw((*it)->_sp);
+        }
     for (std::vector<Player *>::iterator it = _players.begin(); it != _players.end(); ++it)
         if (*it)
             window.draw((*it)->_crosshair);
+
+
+    int i = 0;
+    std::vector<sf::Text> v;
+    for (auto elem : _scores) {
+        if (elem)
+            v.push_back(*elem);
+    }
+
+    std::sort(v.begin(), v.end(), scoreGreater());
+    for (std::vector<sf::Text>::iterator it = v.begin(); it != v.end(); ++it) {
+        if (i == 5)
+            break;
+        (*it).setPosition(0, i  * (*it).getCharacterSize());
+        window.draw(*it);
+        i++;
+    }
     window.display();
 }
