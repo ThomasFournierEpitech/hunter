@@ -61,7 +61,7 @@ void ProtocolManager::ClientShotSend(Server &s, sf::Packet &p)
     int x;
     int y;
     int id;
-    int score = 1;
+    int score = 100;
     p >> x;
     p >> y;
     p >> id;
